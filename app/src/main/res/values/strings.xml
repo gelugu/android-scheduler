@@ -6,4 +6,5 @@
     <string name="add_task_name_label">Name: </string>
     <string name="add_task_name_hint">Task name</string>
     <string name="add_task_save_button_text">Save</string>
+    <string name="add_new_task_button_description">Add new task button</string>
 </resources>
