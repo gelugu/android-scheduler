@@ -10,15 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scheduler">
         <activity
-            android:name=".presentation.TaskInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddTaskItem"
-            android:exported="false" />
-        <activity
-            android:name=".TaskItemInfo"
-            android:exported="false" />
-        <activity
             android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>
