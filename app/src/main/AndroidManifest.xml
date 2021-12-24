@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scheduler">
+        <activity android:name=".presentation.TaskItemActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true">
