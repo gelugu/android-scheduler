@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-java@v1
         with: { java-version: 11 }
       - name: Build release APK and AAB after test
-        run: ./gradlew test
+        run: ./gradlew jacocoTestReportDebug
 
   build-apk:
     name: Build develop artifact
