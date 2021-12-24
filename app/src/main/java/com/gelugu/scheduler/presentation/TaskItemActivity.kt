@@ -21,15 +21,14 @@ class TaskItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_item)
 
-        viewModel = ViewModelProvider(this)[TaskItemViewModel::class.java]
-
         parseIntent()
 
+        viewModel = ViewModelProvider(this)[TaskItemViewModel::class.java]
+
         addTextChangeListeners()
+        addErrorsListeners()
 
         launchSelectedMode()
-
-        addErrorsListeners()
 
         viewModel.isReadyCloseScreen.observe(this) { finish() }
     }
@@ -44,13 +43,13 @@ class TaskItemActivity : AppCompatActivity() {
     private fun addErrorsListeners() {
         viewModel.errorInputCount.observe(this) {
             val errorMessage =
-                if (it) "ToDo: set error"
+                if (it) getString(R.string.invalidEditTextName)
                 else null
             til_count.error = errorMessage
         }
         viewModel.errorInputName.observe(this) {
             val errorMessage =
-                if (it) "ToDo: set error"
+                if (it) getString(R.string.invalidEditTextCount)
                 else null
             til_name.error = errorMessage
         }
@@ -58,8 +57,13 @@ class TaskItemActivity : AppCompatActivity() {
 
     private fun addTextChangeListeners() {
         edit_task_name.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Must be overridden, but not useful
+            }
+            override fun afterTextChanged(s: Editable?) {
+                // Must be overridden, but not useful
+            }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.resetErrorInputName()
@@ -67,8 +71,12 @@ class TaskItemActivity : AppCompatActivity() {
         })
 
         edit_task_count.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Must be overridden, but not useful
+            }
+            override fun afterTextChanged(s: Editable?) {
+                // Must be overridden, but not useful
+            }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.resetErrorInputCount()
