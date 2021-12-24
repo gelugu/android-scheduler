@@ -15,7 +15,7 @@ object TaskRepositoryImpl : TaskRepository {
     private var autoIncrementId = 0
 
     init {
-        for (i in 0 until 1500) {
+        for (i in 0 until 10) {
             val task = Task("task $i", Random.nextLong(), Random.nextBoolean())
             addTask(task)
         }

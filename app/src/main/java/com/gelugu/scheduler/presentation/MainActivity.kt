@@ -1,5 +1,6 @@
 package com.gelugu.scheduler.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.gelugu.scheduler.R
+import com.gelugu.scheduler.domain.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupRecycleView()
+
+        addItemButton.setOnClickListener {
+            val intent = TaskItemActivity.newIntentAddTask(this)
+            startActivity(intent)
+        }
     }
 
     private fun setupRecycleView() {
@@ -60,7 +67,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupOnClickListener() {
         taskListAdapter.onTaskClickListener = {
-            Log.d("CLICK_ON_TASK", it.toString())
+            val intent = TaskItemActivity.newIntentEditTask(this, it.id)
+            startActivity(intent)
         }
     }
 
