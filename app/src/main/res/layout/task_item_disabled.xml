@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
+        android:background="@color/gray"
         android:orientation="horizontal"
         android:padding="16dp">
         <TextView
@@ -24,16 +24,14 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="task"/>
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/taskDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="dd/mm/yy"/>
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
